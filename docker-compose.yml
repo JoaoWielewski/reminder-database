@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  postgres:
+    restart: always
+    container_name: reminder_postgres
+    image: 'postgres:13.8-alpine'
+    ports:
+      - '5433:5433'
+    environment:
+      - POSTGRES_DB=reminder
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+    volumes:
+      - postgres:/var/lib/postgresql/data/
+    networks:
+      - default
+
+volumes:
+  postgres:
+
+networks:
+  default:

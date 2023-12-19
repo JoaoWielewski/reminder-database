@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model doctor {
+  id            String     @id @default(cuid())
+  name          String
+  phone         String
+  specialty     String
+  schedule_time Int
+  email         String
+  created_at    DateTime
+  updated_at    DateTime?
+  pacient       pacient[]
+  reminder      reminder[]
+}
+
+model pacient {
+  id         String    @id @default(cuid())
+  name       String
+  phone      String
+  doctor_id  String
+  created_at DateTime
+  updated_at DateTime?
+
+  doctor   doctor     @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
+  reminder reminder[]
+}
+
+model reminder {
+  id            String    @id @default(cuid())
+  doctor_id     String
+  pacient_id    String
+  period        Int
+  expected_date String
+  status        String
+  created_at    DateTime
+  updated_at    DateTime?
+
+  doctor doctor @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
+  pacient pacient @relation(fields: [pacient_id], references: [id], onDelete: Cascade)
+}
