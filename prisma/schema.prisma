@@ -17,6 +17,7 @@ model doctor {
   specialty     String
   schedule_time Int
   email         String
+  pronoun       String
   created_at    DateTime
   updated_at    DateTime?
   pacient       pacient[]
@@ -45,6 +46,6 @@ model reminder {
   created_at    DateTime
   updated_at    DateTime?
 
-  doctor doctor @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
+  doctor  doctor  @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
   pacient pacient @relation(fields: [pacient_id], references: [id], onDelete: Cascade)
 }

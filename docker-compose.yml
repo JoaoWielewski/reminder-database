@@ -5,7 +5,7 @@ services:
     container_name: reminder_postgres
     image: 'postgres:13.8-alpine'
     ports:
-      - '5433:5433'
+      - '5433:5432'
     environment:
       - POSTGRES_DB=reminder
       - POSTGRES_USER=dev
