@@ -17,6 +17,7 @@ model doctor {
   specialty     String
   schedule_time Int
   email         String
+  password      String
   pronoun       String
   created_at    DateTime
   updated_at    DateTime?
