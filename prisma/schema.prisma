@@ -19,7 +19,7 @@ model doctor {
   email               String
   password            String
   pronoun             String
-  status              Boolean
+  is_active           Boolean
   monthly_reminders   Int
   remaining_reminders Int
   schedule_phone      String
