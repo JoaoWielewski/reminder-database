@@ -1,0 +1,8 @@
+-- AlterTable
+ALTER TABLE "doctor" ALTER COLUMN "created_at" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "pacient" ALTER COLUMN "created_at" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "reminder" ALTER COLUMN "created_at" SET DEFAULT CURRENT_TIMESTAMP;

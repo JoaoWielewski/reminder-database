@@ -19,7 +19,7 @@ model doctor {
   email         String
   password      String
   pronoun       String
-  created_at    DateTime
+  created_at    DateTime   @default(now())
   updated_at    DateTime?
   pacient       pacient[]
   reminder      reminder[]
@@ -30,7 +30,7 @@ model pacient {
   name       String
   phone      String
   doctor_id  String
-  created_at DateTime
+  created_at DateTime  @default(now())
   updated_at DateTime?
 
   doctor   doctor     @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
@@ -44,7 +44,7 @@ model reminder {
   period        Int
   expected_date String
   status        String
-  created_at    DateTime
+  created_at    DateTime  @default(now())
   updated_at    DateTime?
 
   doctor  doctor  @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
