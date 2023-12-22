@@ -22,6 +22,7 @@ model doctor {
   status              Boolean
   monthly_reminders   Int
   remaining_reminders Int
+  schedule_phone      String
   created_at          DateTime   @default(now())
   updated_at          DateTime?
   reminder            reminder[]
