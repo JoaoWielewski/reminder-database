@@ -33,7 +33,8 @@ model reminder {
   doctor_id            String
   pacient_name         String
   pacient_phone        String
-  period               Int
+  period_quantity      Int
+  period_type          String
   expected_return_date String
   status               String
   created_at           DateTime  @default(now())
