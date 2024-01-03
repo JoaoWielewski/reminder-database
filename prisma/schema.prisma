@@ -40,5 +40,14 @@ model reminder {
   created_at           DateTime  @default(now())
   updated_at           DateTime?
 
-  doctor doctor @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
+  doctor   doctor     @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
+  redirect redirect[]
+}
+
+model redirect {
+  id          String   @id @default(cuid())
+  reminder_id String
+  created_at  DateTime @default(now())
+
+  reminder reminder @relation(fields: [reminder_id], references: [id], onDelete: Cascade)
 }
