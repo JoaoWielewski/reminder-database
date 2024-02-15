@@ -48,6 +48,13 @@ model redirect {
   id          String   @id @default(cuid())
   reminder_id String
   created_at  DateTime @default(now())
+  reminder    reminder @relation(fields: [reminder_id], references: [id], onDelete: Cascade)
+}
 
-  reminder reminder @relation(fields: [reminder_id], references: [id], onDelete: Cascade)
+model reply {
+  id         String   @id @default(cuid())
+  phone      String
+  name       String
+  text       String
+  created_at DateTime @default(now())
 }
