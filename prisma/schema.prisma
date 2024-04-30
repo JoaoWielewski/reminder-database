@@ -15,7 +15,7 @@ model doctor {
   name                String
   phone               String
   specialty           String
-  days_to_schedule    Int
+  days_to_schedule    Int?
   email               String     @unique
   password            String
   pronoun             String
